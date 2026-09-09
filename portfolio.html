@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Eternity Studio</title>
+    <meta name="description" content="Browse our curated portfolio of stunning wedding photography, pre-wedding shoots, and cinematic moments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <span class="preloader-text">Eternity Studio</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Eternity" class="brand-icon">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-nav-auth">
+                <div class="auth-nav-item"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content text-center">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text" style="color: var(--gold);">Our Work</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h1 class="page-hero-title reveal-up">Our <em>Portfolio</em></h1>
+                <p class="page-hero-subtitle reveal-up">A curated collection of our finest wedding moments</p>
+                <nav class="breadcrumb-nav reveal-up" aria-label="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-current">Portfolio</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section section-padding">
+        <div class="container">
+            <div class="portfolio-filters reveal-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+                <button class="filter-btn" data-filter="reception">Reception</button>
+                <button class="filter-btn" data-filter="destination">Destination</button>
+            </div>
+            <div class="row g-3 portfolio-grid">
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-card reveal-up">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding ceremony" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Wedding</span>
+                                <h4>The Royal Celebration</h4>
+                                <p>Rajasthan, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80" data-title="The Royal Celebration">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="prewedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.1">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80" alt="Pre-wedding shoot" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Pre-Wedding</span>
+                                <h4>Enchanted Garden</h4>
+                                <p>Mahabaleshwar, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80" data-title="Enchanted Garden">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="reception">
+                    <div class="portfolio-card reveal-up" data-delay="0.2">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Wedding reception" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Reception</span>
+                                <h4>Silver Jubilee Gala</h4>
+                                <p>Mumbai, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80" data-title="Silver Jubilee Gala">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="destination">
+                    <div class="portfolio-card reveal-up" data-delay="0.1">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=800&q=80" alt="Destination wedding" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Destination</span>
+                                <h4>Coastal Vows</h4>
+                                <p>Goa, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=1200&q=80" data-title="Coastal Vows">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.2">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=800&q=80" alt="Wedding details" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Wedding</span>
+                                <h4>Golden Heritage</h4>
+                                <p>Udaipur, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=1200&q=80" data-title="Golden Heritage">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="prewedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.3">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Couple portrait" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Pre-Wedding</span>
+                                <h4>Mountain Romance</h4>
+                                <p>Shimla, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200&q=80" data-title="Mountain Romance">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="destination">
+                    <div class="portfolio-card reveal-up">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80" alt="Destination wedding" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Destination</span>
+                                <h4>Lake Palace Romance</h4>
+                                <p>Udaipur, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200&q=80" data-title="Lake Palace Romance">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="reception">
+                    <div class="portfolio-card reveal-up" data-delay="0.1">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Reception decor" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Reception</span>
+                                <h4>Starlight Soiree</h4>
+                                <p>Delhi, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80" data-title="Starlight Soiree">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.2">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80" alt="Wedding portrait" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Wedding</span>
+                                <h4>Eternal Devotion</h4>
+                                <p>Jaipur, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1200&q=80" data-title="Eternal Devotion">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal -->
+        <div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="portfolioModalLabel"></h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="portfolioModalImg" src="" alt="" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="journal-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">The Journal</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">Stories &amp; <em>Inspiration</em></h2>
+                <p class="section-subtitle reveal-up">Real weddings, planning tips and ideas from behind the lens</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Real Wedding</span>
+                            <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=700&q=80" alt="Destination wedding" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Aug 24, 2026</span>
+                                <span><i class="bi bi-clock"></i> 5 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">A Coastal Vows Celebration in Udaipur</a></h3>
+                            <p class="journal-card-excerpt">How Aarav &amp; Meera turned two families into one unforgettable lakeside weekend.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up" data-delay="0.15">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Planning</span>
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80" alt="Wedding planning" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Aug 12, 2026</span>
+                                <span><i class="bi bi-clock"></i> 6 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">The Perfect Wedding Photo Timeline</a></h3>
+                            <p class="journal-card-excerpt">Golden hour, pheras and portrait time — our formula for a stress-free schedule.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up" data-delay="0.3">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Inspiration</span>
+                            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=700&q=80" alt="Pre wedding location" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Jul 28, 2026</span>
+                                <span><i class="bi bi-clock"></i> 4 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">Top 10 Pre-Wedding Locations in India</a></h3>
+                            <p class="journal-card-excerpt">From Jaipur palaces to Goa shores — dreamy backdrops for your save-the-date.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3 reveal-up">
+                <a href="contact.html" class="btn btn-primary-custom">Plan Your Wedding Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="quote-section">
+        <div class="quote-bg" style="background-image: url('https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=1920&q=80')"></div>
+        <div class="quote-overlay"></div>
+        <div class="container">
+            <div class="quote-content text-center reveal-up">
+                <h2 class="section-title" style="color:var(--white);margin-bottom:20px;">Love What You <em style="color:var(--gold);">See</em>?</h2>
+                <p class="quote-text" style="font-size:18px;font-style:normal;font-family:var(--font-body);border:none;">
+                    Let's create something equally beautiful for your special day.
+                </p>
+                <div style="margin-top:30px;">
+                    <a href="contact.html" class="btn btn-hero-primary">Book Your Session</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="footer-brand">
+                            <a href="index.html"><img src="images/image.png" alt="Eternity" class="brand-icon"></a>
+                        </div>
+                        <p class="footer-desc">Capturing love stories with artistic excellence since 2014. We believe every couple deserves to have their most beautiful moments preserved as timeless art.</p>
+                        <div class="footer-social">
+                            <a href="error.html"><i class="bi bi-instagram"></i></a>
+                            <a href="error.html"><i class="bi bi-facebook"></i></a>
+                            <a href="error.html"><i class="bi bi-youtube"></i></a>
+                            <a href="error.html"><i class="bi bi-pinterest"></i></a>
+                            <a href="error.html"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-title">Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Services</h5>
+                        <ul class="footer-links">
+                            <li><a href="services.html">Wedding Photography</a></li>
+                            <li><a href="services.html">Cinematic Videography</a></li>
+                            <li><a href="services.html">Pre-Wedding Shoots</a></li>
+                            <li><a href="services.html">Engagement Sessions</a></li>
+                            <li><a href="services.html">Photo Albums</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Recent Work</h5>
+                        <div class="footer-gallery">
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80" alt="Gallery 1" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=200&q=80" alt="Gallery 2" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=200&q=80" alt="Gallery 3" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=200&q=80" alt="Gallery 4" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=200&q=80" alt="Gallery 5" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=200&q=80" alt="Gallery 6" loading="lazy"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start"><p>&copy; 2026 Eternity Studio. All Rights Reserved.</p></div>
+                    <div class="col-md-6 text-center text-md-end"><p>Designed with <span class="heart">&#10084;</span> for Love</p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

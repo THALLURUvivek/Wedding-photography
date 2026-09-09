@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternity Studio — Premium Wedding Photography</title>
+    <meta name="description" content="Eternity Studio captures the most beautiful moments of your special day with artistic excellence and timeless elegance.">
+
+    <!-- Prelopencvodoad critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <span class="preloader-text">Eternity Studio</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Eternity" class="brand-icon">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-nav-auth">
+                <div class="auth-nav-item"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1920&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1920&q=80')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-10 mx-auto text-center">
+                    <div class="hero-badge">
+                        <span>Premium Wedding Photography</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line" data-anim="title">Capturing</span>
+                        <span class="title-line title-italic" data-anim="title">Timeless</span>
+                        <span class="title-line" data-anim="title">Moments</span>
+                    </h1>
+                    <p class="hero-subtitle" data-anim="subtitle">
+                        Where every frame tells a love story, and every moment becomes an everlasting memory
+                    </p>
+                    <div class="hero-cta" data-anim="cta">
+                        <a href="portfolio.html" class="btn btn-hero-primary">View Portfolio</a>
+                        <a href="contact.html" class="btn btn-hero-outline">Book a Session</a>
+                    </div>
+                    <div class="hero-scroll-indicator" data-anim="scroll">
+                        <div class="scroll-mouse">
+                            <div class="scroll-wheel"></div>
+                        </div>
+                        <span>Scroll Down</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="about-images">
+                        <div class="about-img-main reveal-up">
+                            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80" alt="Wedding photographer at work" loading="lazy">
+                        </div>
+                        <div class="about-img-accent reveal-up" data-delay="0.2">
+                            <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600&q=80" alt="Beautiful wedding details" loading="lazy">
+                        </div>
+                        <div class="about-experience-badge reveal-up" data-delay="0.4">
+                            <span class="exp-number">12+</span>
+                            <span class="exp-text">Years of<br>Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <div class="section-tag reveal-up">
+                            <span class="tag-line"></span>
+                            <span class="tag-text">Our Story</span>
+                        </div>
+                        <h2 class="section-title reveal-up">
+                            We Create Art<br>From Your <em>Love</em>
+                        </h2>
+                        <p class="about-description reveal-up">
+                            Eternity Studio was born from a deep passion for preserving life's most beautiful moments. With over a decade of experience, we've mastered the art of transforming fleeting seconds into timeless treasures.
+                        </p>
+                        <p class="about-description reveal-up">
+                            Our approach blends editorial sophistication with authentic emotion, ensuring every photograph reflects the genuine connection between two people in love.
+                        </p>
+                        <div class="about-stats reveal-up">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="500">0</span>
+                                <span class="stat-plus">+</span>
+                                <span class="stat-label">Weddings Captured</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="15">0</span>
+                                <span class="stat-plus">+</span>
+                                <span class="stat-label">Awards Won</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="98">0</span>
+                                <span class="stat-plus">%</span>
+                                <span class="stat-label">Happy Couples</span>
+                            </div>
+                        </div>
+                        <a href="services.html" class="btn btn-primary-custom reveal-up">
+                            Discover Our Services
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">What We Offer</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    Our Premium <em>Services</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    Comprehensive photography solutions tailored to your unique vision
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card reveal-up">
+                        <div class="service-icon">
+                            <i class="bi bi-camera-reels"></i>
+                        </div>
+                        <div class="service-number">01</div>
+                        <h3 class="service-title">Wedding Photography</h3>
+                        <p class="service-desc">
+                            Full-day coverage capturing every precious moment from preparation to celebration with an artistic, documentary-style approach.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check2"></i> 8-12 hours coverage</li>
+                            <li><i class="bi bi-check2"></i> 500+ edited photographs</li>
+                            <li><i class="bi bi-check2"></i> Online private gallery</li>
+                            <li><i class="bi bi-check2"></i> Premium photo album</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card featured reveal-up" data-delay="0.15">
+                        <div class="service-ribbon">Most Popular</div>
+                        <div class="service-icon">
+                            <i class="bi bi-film"></i>
+                        </div>
+                        <div class="service-number">02</div>
+                        <h3 class="service-title">Cinematic Videography</h3>
+                        <p class="service-desc">
+                            Hollywood-inspired wedding films that weave together the emotions, beauty, and magic of your special day into a cinematic masterpiece.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check2"></i> 4K cinematic film</li>
+                            <li><i class="bi bi-check2"></i> Same-day edit highlight</li>
+                            <li><i class="bi bi-check2"></i> Drone aerial footage</li>
+                            <li><i class="bi bi-check2"></i> Full ceremony edit</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card reveal-up" data-delay="0.3">
+                        <div class="service-icon">
+                            <i class="bi bi-image-alt"></i>
+                        </div>
+                        <div class="service-number">03</div>
+                        <h3 class="service-title">Pre-Wedding Shoots</h3>
+                        <p class="service-desc">
+                            Romantic engagement and pre-wedding sessions in stunning locations that reflect your unique love story and personality.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check2"></i> Multiple outfit changes</li>
+                            <li><i class="bi bi-check2"></i> Location scouting</li>
+                            <li><i class="bi bi-check2"></i> 100+ edited photos</li>
+                            <li><i class="bi bi-check2"></i> Save-the-date cards</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">How It Works</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    A Seamless <em>Journey</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    Four simple steps from your first hello to a forever gallery
+                </p>
+            </div>
+            <div class="row g-4 process-line">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step reveal-up">
+                        <div class="process-step-ic">
+                            <i class="bi bi-chat-heart"></i>
+                            <span class="process-step-num">1</span>
+                        </div>
+                        <h3 class="process-step-title">Enquiry &amp; Booking</h3>
+                        <p class="process-step-desc">Share your wedding date and love story through our contact form. We respond within 24 hours.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step reveal-up" data-delay="0.15">
+                        <div class="process-step-ic">
+                            <i class="bi bi-calendar2-heart"></i>
+                            <span class="process-step-num">2</span>
+                        </div>
+                        <h3 class="process-step-title">Consultation</h3>
+                        <p class="process-step-desc">We craft your timeline, mood board, and shot list together over a relaxed consultation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step reveal-up" data-delay="0.3">
+                        <div class="process-step-ic">
+                            <i class="bi bi-camera"></i>
+                            <span class="process-step-num">3</span>
+                        </div>
+                        <h3 class="process-step-title">The Big Day</h3>
+                        <p class="process-step-desc">Our team captures every candid moment while you celebrate, completely worry-free.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step reveal-up" data-delay="0.45">
+                        <div class="process-step-ic">
+                            <i class="bi bi-images"></i>
+                            <span class="process-step-num">4</span>
+                        </div>
+                        <h3 class="process-step-title">Curated Delivery</h3>
+                        <p class="process-step-desc">Receive your hand-edited gallery in a private online album, plus premium prints and albums.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">Our Work</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    Featured <em>Portfolio</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    A curated collection of our finest wedding moments
+                </p>
+            </div>
+            <div class="portfolio-filters reveal-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+                <button class="filter-btn" data-filter="reception">Reception</button>
+                <button class="filter-btn" data-filter="destination">Destination</button>
+            </div>
+            <div class="row g-3 portfolio-grid">
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-card reveal-up">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding ceremony" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Wedding</span>
+                                <h4>The Royal Celebration</h4>
+                                <p>Rajasthan, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80" data-title="The Royal Celebration">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="prewedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.1">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80" alt="Pre-wedding shoot" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Pre-Wedding</span>
+                                <h4>Enchanted Garden</h4>
+                                <p>Mahabaleshwar, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80" data-title="Enchanted Garden">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="reception">
+                    <div class="portfolio-card reveal-up" data-delay="0.2">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Wedding reception" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Reception</span>
+                                <h4>Silver Jubilee Gala</h4>
+                                <p>Mumbai, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80" data-title="Silver Jubilee Gala">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="destination">
+                    <div class="portfolio-card reveal-up" data-delay="0.1">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=800&q=80" alt="Destination wedding" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Destination</span>
+                                <h4>Coastal Vows</h4>
+                                <p>Goa, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=1200&q=80" data-title="Coastal Vows">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.2">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=800&q=80" alt="Wedding details" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Wedding</span>
+                                <h4>Golden Heritage</h4>
+                                <p>Udaipur, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=1200&q=80" data-title="Golden Heritage">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="prewedding">
+                    <div class="portfolio-card reveal-up" data-delay="0.3">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Couple portrait" loading="lazy">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Pre-Wedding</span>
+                                <h4>Mountain Romance</h4>
+                                <p>Shimla, India</p>
+                                <button class="portfolio-expand" data-bs-toggle="modal" data-bs-target="#portfolioModal" data-img="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200&q=80" data-title="Mountain Romance">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal -->
+        <div class="modal fade" id="portfolioModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="portfolioModalLabel"></h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="portfolioModalImg" src="" alt="" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">Packages</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    Wedding <em>Packages</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    Transparent pricing with no hidden costs — choose the coverage that fits your celebration
+                </p>
+            </div>
+            <div class="row g-4 align-items-end">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pkg-card reveal-up">
+                        <div class="pkg-icon"><i class="bi bi-flower1"></i></div>
+                        <h3 class="pkg-name">Enchanted</h3>
+                        <p class="pkg-tagline">Essential coverage for intimate celebrations</p>
+                        <div class="pkg-price">₹ 45,000 <small>/ package</small></div>
+                        <p class="pkg-duration">Up to 6 hours · 1 photographer</p>
+                        <ul class="pkg-features">
+                            <li><i class="bi bi-check2"></i> 6 hours of coverage</li>
+                            <li><i class="bi bi-check2"></i> 300+ edited photographs</li>
+                            <li><i class="bi bi-check2"></i> Online private gallery</li>
+                            <li><i class="bi bi-check2"></i> 10 premium prints</li>
+                            <li class="disabled"><i class="bi bi-x"></i> Cinematic film</li>
+                            <li class="disabled"><i class="bi bi-x"></i> Drone footage</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom w-100">Book This Package</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pkg-card pkg-featured reveal-up" data-delay="0.15">
+                        <div class="pkg-badge">Most Popular</div>
+                        <div class="pkg-icon"><i class="bi bi-gem"></i></div>
+                        <h3 class="pkg-name">Majestic</h3>
+                        <p class="pkg-tagline">Our signature full-day wedding experience</p>
+                        <div class="pkg-price">₹ 85,000 <small>/ package</small></div>
+                        <p class="pkg-duration">Full-day · 2 photographers</p>
+                        <ul class="pkg-features">
+                            <li><i class="bi bi-check2"></i> 12 hours of coverage</li>
+                            <li><i class="bi bi-check2"></i> 600+ edited photographs</li>
+                            <li><i class="bi bi-check2"></i> 6-min cinematic highlight film</li>
+                            <li><i class="bi bi-check2"></i> Online private gallery</li>
+                            <li><i class="bi bi-check2"></i> Premium leather album</li>
+                            <li><i class="bi bi-check2"></i> Same-day teaser</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom w-100">Book This Package</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pkg-card reveal-up" data-delay="0.3">
+                        <div class="pkg-icon"><i class="bi bi-stars"></i></div>
+                        <h3 class="pkg-name">Royal</h3>
+                        <p class="pkg-tagline">Luxury multi-day wedding coverage</p>
+                        <div class="pkg-price">₹ 1,50,000 <small>/ package</small></div>
+                        <p class="pkg-duration">3-day celebration · full crew</p>
+                        <ul class="pkg-features">
+                            <li><i class="bi bi-check2"></i> 3-day multi-event coverage</li>
+                            <li><i class="bi bi-check2"></i> 1000+ edited photographs</li>
+                            <li><i class="bi bi-check2"></i> Full cinematic film + drone</li>
+                            <li><i class="bi bi-check2"></i> Dedicated cinematographer</li>
+                            <li><i class="bi bi-check2"></i> Luxury album &amp; prints</li>
+                            <li><i class="bi bi-check2"></i> Destination travel included</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom w-100">Book This Package</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Quote Section -->
+    <section class="quote-section">
+        <div class="quote-bg" style="background-image: url('https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=1920&q=80')"></div>
+        <div class="quote-overlay"></div>
+        <div class="container">
+            <div class="quote-content text-center reveal-up">
+                <div class="quote-icon">
+                    <i class="bi bi-quote"></i>
+                </div>
+                <blockquote class="quote-text">
+                    Photography is the story I fail to put into words — but every wedding we capture speaks volumes about love, devotion, and eternal bonds.
+                </blockquote>
+                <div class="quote-author">
+                    <span class="author-name">Arjun Mehta</span>
+                    <span class="author-title">Founder & Lead Photographer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">Happy Couples</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    What Our <em>Couples</em> Say
+                </h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="swiper-wrapper">
+                    <div class="testimonial-card reveal-up">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Eternity Studio didn't just capture our wedding — they captured the essence of our love. Every photograph is a work of art that we'll treasure forever. Their attention to detail is simply extraordinary."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80" alt="Priya Sharma" loading="lazy">
+                            <div>
+                                <h5>Priya & Rahul Sharma</h5>
+                                <span>December 2025 Wedding</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal-up" data-delay="0.15">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "From the pre-wedding shoot to the final album, every step was seamless and magical. The team made us feel so comfortable, and the results exceeded all our expectations. Truly world-class!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" alt="Vikram Patel" loading="lazy">
+                            <div>
+                                <h5>Ananya & Vikram Patel</h5>
+                                <span>October 2025 Wedding</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal-up" data-delay="0.3">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Our destination wedding in Goa was captured so beautifully that even our guests were amazed. The cinematic film made us cry happy tears. Eternity Studio is simply the best in the business!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80" alt="Meera Joshi" loading="lazy">
+                            <div>
+                                <h5>Meera & Karthik Joshi</h5>
+                                <span>January 2026 Wedding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev"><i class="bi bi-arrow-left"></i></button>
+                    <div class="testimonial-dots"></div>
+                    <button class="testimonial-next"><i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="journal-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">The Journal</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    Stories &amp; <em>Inspiration</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    Real weddings, planning tips and ideas from behind the lens
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Real Wedding</span>
+                            <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=700&q=80" alt="Destination wedding" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Aug 24, 2026</span>
+                                <span><i class="bi bi-clock"></i> 5 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">A Coastal Vows Celebration in Udaipur</a></h3>
+                            <p class="journal-card-excerpt">How Aarav &amp; Meera turned two families into one unforgettable lakeside weekend.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up" data-delay="0.15">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Planning</span>
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80" alt="Wedding planning" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Aug 12, 2026</span>
+                                <span><i class="bi bi-clock"></i> 6 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">The Perfect Wedding Photo Timeline</a></h3>
+                            <p class="journal-card-excerpt">Golden hour, pheras and portrait time — our formula for a stress-free schedule.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="journal-card reveal-up" data-delay="0.3">
+                        <div class="journal-card-img">
+                            <span class="journal-cat">Inspiration</span>
+                            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=700&q=80" alt="Pre wedding location" loading="lazy">
+                        </div>
+                        <div class="journal-card-body">
+                            <div class="journal-meta">
+                                <span><i class="bi bi-calendar3"></i> Jul 28, 2026</span>
+                                <span><i class="bi bi-clock"></i> 4 min read</span>
+                            </div>
+                            <h3 class="journal-card-title"><a href="error.html">Top 10 Pre-Wedding Locations in India</a></h3>
+                            <p class="journal-card-excerpt">From Jaipur palaces to Goa shores — dreamy backdrops for your save-the-date.</p>
+                            <a href="error.html" class="journal-card-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3 reveal-up">
+                <a href="contact.html" class="btn btn-primary-custom">Plan Your Wedding Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <div class="section-tag reveal-up">
+                            <span class="tag-line"></span>
+                            <span class="tag-text">Get in Touch</span>
+                        </div>
+                        <h2 class="section-title reveal-up">
+                            Let's Create Something <em>Beautiful</em>
+                        </h2>
+                        <p class="contact-desc reveal-up">
+                            Ready to capture your love story? We'd love to hear about your plans and discuss how we can make your special day unforgettable.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item reveal-up">
+                                <div class="contact-icon">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div>
+                                    <h5>Visit Our Studio</h5>
+                                    <p>42 Heritage Lane, Bandra West<br>Mumbai, Maharashtra 400050</p>
+                                </div>
+                            </div>
+                            <div class="contact-item reveal-up" data-delay="0.1">
+                                <div class="contact-icon">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div>
+                                    <h5>Call Us</h5>
+                                    <p>+91 98765 43210<br>+91 22 2645 7890</p>
+                                </div>
+                            </div>
+                            <div class="contact-item reveal-up" data-delay="0.2">
+                                <div class="contact-icon">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <div>
+                                    <h5>Email Us</h5>
+                                    <p>hello@eternitystudio.in<br>bookings@eternitystudio.in</p>
+                                </div>
+                            </div>
+                            <div class="contact-item reveal-up" data-delay="0.3">
+                                <div class="contact-icon">
+                                    <i class="bi bi-clock-fill"></i>
+                                </div>
+                                <div>
+                                    <h5>Working Hours</h5>
+                                    <p>Mon — Sat: 10:00 AM — 7:00 PM<br>Sunday: By Appointment Only</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-social reveal-up">
+                            <a href="error.html" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="error.html" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="error.html" class="social-link"><i class="bi bi-youtube"></i></a>
+                            <a href="error.html" class="social-link"><i class="bi bi-pinterest"></i></a>
+                            <a href="error.html" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-form-wrapper reveal-up">
+                        <form id="contactForm" class="contact-form">
+                            <h4 class="form-title">Send Us a Message</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="weddingDate">Wedding Date</label>
+                                        <input type="date" class="form-control" id="weddingDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="service">Service Interested In</label>
+                                        <select class="form-control" id="service">
+                                            <option value="">Select a service</option>
+                                            <option value="wedding">Wedding Photography</option>
+                                            <option value="videography">Cinematic Videography</option>
+                                            <option value="prewedding">Pre-Wedding Shoot</option>
+                                            <option value="engagement">Engagement Session</option>
+                                            <option value="custom">Custom Package</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message">Your Message</label>
+                                        <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your wedding plans..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom btn-submit">
+                                        <span>Send Message</span>
+                                        <i class="bi bi-send"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="formSuccess" class="form-success" style="display: none;">
+                            <div class="success-icon">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <h4>Message Sent Successfully!</h4>
+                            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="insta-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag reveal-up">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">Social</span>
+                    <span class="tag-line"></span>
+                </div>
+                <h2 class="section-title reveal-up">
+                    Follow <em>@eternitystudio</em>
+                </h2>
+                <p class="section-subtitle reveal-up">
+                    Behind-the-scenes moments, real weddings and daily inspiration
+                </p>
+            </div>
+            <div class="insta-grid reveal-up">
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Instagram frame 1" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Instagram frame 2" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Instagram frame 3" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600&q=80" alt="Instagram frame 4" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="Instagram frame 5" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+                <a href="portfolio.html" class="insta-item"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Instagram frame 6" loading="lazy"><span class="insta-overlay"><i class="bi bi-instagram"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="footer-brand">
+                            <a href="index.html">
+                                <img src="images/image.png" alt="Eternity" class="brand-icon">
+                            </a>
+                        </div>
+                        <p class="footer-desc">
+                            Capturing love stories with artistic excellence since 2014. We believe every couple deserves to have their most beautiful moments preserved as timeless art.
+                        </p>
+                        <div class="footer-social">
+                            <a href="error.html"><i class="bi bi-instagram"></i></a>
+                            <a href="error.html"><i class="bi bi-facebook"></i></a>
+                            <a href="error.html"><i class="bi bi-youtube"></i></a>
+                            <a href="error.html"><i class="bi bi-pinterest"></i></a>
+                            <a href="error.html"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-title">Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Services</h5>
+                        <ul class="footer-links">
+                            <li><a href="services.html">Wedding Photography</a></li>
+                            <li><a href="services.html">Cinematic Videography</a></li>
+                            <li><a href="services.html">Pre-Wedding Shoots</a></li>
+                            <li><a href="services.html">Engagement Sessions</a></li>
+                            <li><a href="services.html">Photo Albums</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Recent Work</h5>
+                        <div class="footer-gallery">
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80" alt="Gallery 1" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=200&q=80" alt="Gallery 2" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=200&q=80" alt="Gallery 3" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=200&q=80" alt="Gallery 4" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=200&q=80" alt="Gallery 5" loading="lazy"></a>
+                            <a href="portfolio.html"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=200&q=80" alt="Gallery 6" loading="lazy"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p>&copy; 2026 Eternity Studio. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p>Designed with <span class="heart">&#10084;</span> for Love</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
