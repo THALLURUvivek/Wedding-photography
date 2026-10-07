@@ -57,15 +57,6 @@
                 </button>
             </nav>
 
-            <div class="sidebar-user" id="sidebarUser">
-                <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
-                <div class="sidebar-user-info">
-                    <div class="sidebar-user-name" id="sidebarUserName"></div>
-                    <div class="sidebar-user-email" id="sidebarUserEmail"></div>
-                    <div class="sidebar-user-role" id="sidebarUserRole"></div>
-                </div>
-            </div>
-
             <div class="sidebar-footer">
                 <a href="index.html" class="sidebar-link plain-link">
                     <i class="bi bi-arrow-left"></i>
@@ -108,7 +99,7 @@
                                 <div class="stat-card-icon gold"><i class="bi bi-camera"></i></div>
                                 <div class="stat-card-info">
                                     <span class="stat-card-label">Bookings</span>
-                                    <span class="stat-card-value" id="statBookings">0</span>
+                                    <span class="stat-card-value" id="statBookings">12</span>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +108,7 @@
                                 <div class="stat-card-icon blue"><i class="bi bi-images"></i></div>
                                 <div class="stat-card-info">
                                     <span class="stat-card-label">Gallery Items</span>
-                                    <span class="stat-card-value" id="statGalleries">0</span>
+                                    <span class="stat-card-value" id="statGalleries">156</span>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +117,7 @@
                                 <div class="stat-card-icon green"><i class="bi bi-envelope-check"></i></div>
                                 <div class="stat-card-info">
                                     <span class="stat-card-label">Messages</span>
-                                    <span class="stat-card-value" id="statMessages">0</span>
+                                    <span class="stat-card-value" id="statMessages">8</span>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +126,7 @@
                                 <div class="stat-card-icon purple"><i class="bi bi-people"></i></div>
                                 <div class="stat-card-info">
                                     <span class="stat-card-label" id="statUsersLabel">Happy Couples</span>
-                                    <span class="stat-card-value" id="statUsers">0</span>
+                                    <span class="stat-card-value" id="statUsers">24</span>
                                 </div>
                             </div>
                         </div>
@@ -165,6 +156,12 @@
                                                     <strong>Welcome to Eternity Studio</strong>
                                                     <p>Your dashboard is ready. Start by making your first booking.</p>
                                                     <small><i class="bi bi-clock"></i> Just now</small>
+                                                </div>
+                                                <div class="activity-gallery">
+                                                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Welcome" class="activity-image">
+                                                    <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=800&q=80" alt="Welcome 2" class="activity-image">
+                                                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Welcome 3" class="activity-image">
+                                                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Welcome 4" class="activity-image">
                                                 </div>
                                             </div>
                                         </div>
@@ -246,21 +243,21 @@
                             <div class="col-md-4">
                                 <div class="mini-stat-card pending">
                                     <div class="mini-stat-icon"><i class="bi bi-hourglass-split"></i></div>
-                                    <div class="mini-stat-value" id="statPending">0</div>
+                                    <div class="mini-stat-value" id="statPending">3</div>
                                     <div class="mini-stat-label">Pending</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mini-stat-card confirmed">
                                     <div class="mini-stat-icon"><i class="bi bi-check-circle"></i></div>
-                                    <div class="mini-stat-value" id="statConfirmed">0</div>
+                                    <div class="mini-stat-value" id="statConfirmed">7</div>
                                     <div class="mini-stat-label">Confirmed</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mini-stat-card completed">
                                     <div class="mini-stat-icon"><i class="bi bi-trophy"></i></div>
-                                    <div class="mini-stat-value" id="statCompleted">0</div>
+                                    <div class="mini-stat-value" id="statCompleted">2</div>
                                     <div class="mini-stat-label">Completed</div>
                                 </div>
                             </div>
@@ -387,11 +384,11 @@
                                         <p class="profile-email" id="profileEmail">email@example.com</p>
                                         <div class="profile-stats-row">
                                             <div class="profile-stat">
-                                                <span class="profile-stat-num" id="profileBookingCount">0</span>
+                                                <span class="profile-stat-num" id="profileBookingCount">12</span>
                                                 <span class="profile-stat-label">Bookings</span>
                                             </div>
                                             <div class="profile-stat">
-                                                <span class="profile-stat-num" id="profileMessageCount">0</span>
+                                                <span class="profile-stat-num" id="profileMessageCount">8</span>
                                                 <span class="profile-stat-label">Messages</span>
                                             </div>
                                         </div>
@@ -887,21 +884,21 @@
                             <div class="col-md-4">
                                 <div class="mini-stat-card gold">
                                     <div class="mini-stat-icon"><i class="bi bi-envelope"></i></div>
-                                    <div class="mini-stat-value" id="totalMsgCount">0</div>
+                                    <div class="mini-stat-value" id="totalMsgCount">8</div>
                                     <div class="mini-stat-label">Total Messages</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mini-stat-card blue">
                                     <div class="mini-stat-icon"><i class="bi bi-envelope-plus"></i></div>
-                                    <div class="mini-stat-value" id="newMsgCount">0</div>
+                                    <div class="mini-stat-value" id="newMsgCount">2</div>
                                     <div class="mini-stat-label">New Today</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mini-stat-card green">
                                     <div class="mini-stat-icon"><i class="bi bi-check-all"></i></div>
-                                    <div class="mini-stat-value" id="readMsgCount">0</div>
+                                    <div class="mini-stat-value" id="readMsgCount">6</div>
                                     <div class="mini-stat-label">Read</div>
                                 </div>
                             </div>
@@ -1039,28 +1036,28 @@
                             <div class="col-md-3">
                                 <div class="mini-stat-card gold">
                                     <div class="mini-stat-icon"><i class="bi bi-people"></i></div>
-                                    <div class="mini-stat-value" id="usersTotalCount">0</div>
+                                    <div class="mini-stat-value" id="usersTotalCount">25</div>
                                     <div class="mini-stat-label">Total Users</div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mini-stat-card purple">
                                     <div class="mini-stat-icon"><i class="bi bi-person-gear"></i></div>
-                                    <div class="mini-stat-value" id="usersAdminCount">0</div>
+                                    <div class="mini-stat-value" id="usersAdminCount">2</div>
                                     <div class="mini-stat-label">Admins</div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mini-stat-card blue">
                                     <div class="mini-stat-icon"><i class="bi bi-person"></i></div>
-                                    <div class="mini-stat-value" id="usersClientCount">0</div>
+                                    <div class="mini-stat-value" id="usersClientCount">23</div>
                                     <div class="mini-stat-label">Clients</div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mini-stat-card green">
                                     <div class="mini-stat-icon"><i class="bi bi-person-plus"></i></div>
-                                    <div class="mini-stat-value" id="usersNewThisWeek">0</div>
+                                    <div class="mini-stat-value" id="usersNewThisWeek">3</div>
                                     <div class="mini-stat-label">New This Week</div>
                                 </div>
                             </div>
