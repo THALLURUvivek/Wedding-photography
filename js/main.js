@@ -1044,6 +1044,10 @@
             sidebarUserEmail.textContent = user.email;
             sidebarUserRole.textContent = isAdmin ? 'Administrator' : 'Client';
         }
+        var sidebarBrandEmail = document.getElementById('sidebarBrandEmail');
+        if (sidebarBrandEmail) {
+            sidebarBrandEmail.textContent = user.email;
+        }
 
         // Profile display
         setProfileDisplay(user, isAdmin);
@@ -1521,6 +1525,10 @@
             sidebarUserName.textContent = user.firstName + ' ' + user.lastName;
             sidebarUserEmail.textContent = user.email;
             sidebarUserRole.textContent = isAdmin ? 'Administrator' : 'Client';
+        }
+        var sidebarBrandEmail = document.getElementById('sidebarBrandEmail');
+        if (sidebarBrandEmail) {
+            sidebarBrandEmail.textContent = user.email;
         }
 
         // Topbar email
