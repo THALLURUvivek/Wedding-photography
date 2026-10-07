@@ -24,6 +24,9 @@
                     <img src="images/image.png" alt="Eternity" class="brand-icon">
                 </a>
                 <small>Studio Dashboard</small>
+                <button class="sidebar-close d-lg-none" id="sidebarClose" aria-label="Close sidebar">
+                    <i class="bi bi-x-lg"></i>
+                </button>
             </div>
 
             <nav class="sidebar-nav" id="sidebarNav">
@@ -54,6 +57,15 @@
                 </button>
             </nav>
 
+            <div class="sidebar-user" id="sidebarUser">
+                <div class="sidebar-user-avatar" id="sidebarUserAvatar"></div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name" id="sidebarUserName"></div>
+                    <div class="sidebar-user-email" id="sidebarUserEmail"></div>
+                    <div class="sidebar-user-role" id="sidebarUserRole"></div>
+                </div>
+            </div>
+
             <div class="sidebar-footer">
                 <a href="index.html" class="sidebar-link plain-link">
                     <i class="bi bi-arrow-left"></i>
@@ -81,7 +93,7 @@
                     <p id="topbarDate"></p>
                 </div>
                 <div class="topbar-actions">
-                    <a href="contact.html" class="btn btn-primary-custom btn-sm">Make a Booking</a>
+                    <span class="topbar-user-email" id="topbarUserEmail"></span>
                     <div class="topbar-user" id="topbarUser"></div>
                 </div>
             </header>
@@ -129,55 +141,225 @@
                         </div>
                     </div>
 
-                    <div class="row g-4">
-                        <div class="col-lg-8">
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h3>Recent Bookings</h3>
-                                    <button class="dash-link-btn" data-goto="bookings">View All <i class="bi bi-arrow-right"></i></button>
+                    <!-- Overview Sub-tabs -->
+                    <div class="dash-sub-tabs" id="overviewSubTabs">
+                        <button class="dash-sub-tab active" data-sub="overview-activity">Activity</button>
+                        <button class="dash-sub-tab" data-sub="overview-bookings">Bookings</button>
+                        <button class="dash-sub-tab" data-sub="overview-upcoming">Upcoming</button>
+                    </div>
+
+                    <!-- Activity Panel -->
+                    <div class="dash-sub-panel active" id="overview-activity">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3><i class="bi bi-activity" style="color:var(--gold);margin-right:8px;"></i>Recent Activity</h3>
+                                        <button class="dash-link-btn" data-goto="bookings">View All <i class="bi bi-arrow-right"></i></button>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="activity-timeline" id="activityTimeline">
+                                            <div class="activity-item">
+                                                <div class="activity-dot gold"></div>
+                                                <div class="activity-content">
+                                                    <strong>Welcome to Eternity Studio</strong>
+                                                    <p>Your dashboard is ready. Start by making your first booking.</p>
+                                                    <small><i class="bi bi-clock"></i> Just now</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="dash-card-body" id="recentBookings">
-                                    <div class="empty-state">
-                                        <i class="bi bi-calendar-x"></i>
-                                        <p>No bookings yet.</p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Quick Actions</h3>
+                                    </div>
+                                    <div class="dash-card-body quick-actions" id="quickActions">
+                                        <a href="contact.html" class="quick-action-item">
+                                            <i class="bi bi-calendar-plus"></i>
+                                            <div>
+                                                <strong>New Booking</strong>
+                                                <small>Plan your special day</small>
+                                            </div>
+                                        </a>
+                                        <a href="portfolio.html" class="quick-action-item">
+                                            <i class="bi bi-camera"></i>
+                                            <div>
+                                                <strong>Browse Portfolio</strong>
+                                                <small>See our latest work</small>
+                                            </div>
+                                        </a>
+                                        <a href="services.html" class="quick-action-item">
+                                            <i class="bi bi-gem"></i>
+                                            <div>
+                                                <strong>View Services</strong>
+                                                <small>Explore packages</small>
+                                            </div>
+                                        </a>
+                                        <button class="quick-action-item admin-only" data-goto="users" style="display:none;">
+                                            <i class="bi bi-people"></i>
+                                            <div>
+                                                <strong>Manage Users</strong>
+                                                <small>Admin tools</small>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Studio Stats Widget -->
+                                <div class="dash-card" style="margin-top:24px;">
+                                    <div class="dash-card-header">
+                                        <h3>Studio Stats</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="studio-stat-row">
+                                            <div class="studio-stat-item">
+                                                <span class="studio-stat-num" id="studioWeddings">250+</span>
+                                                <span class="studio-stat-label">Weddings Done</span>
+                                            </div>
+                                            <div class="studio-stat-item">
+                                                <span class="studio-stat-num">98%</span>
+                                                <span class="studio-stat-label">Happy Clients</span>
+                                            </div>
+                                        </div>
+                                        <div class="studio-stat-row" style="margin-top:12px;">
+                                            <div class="studio-stat-item">
+                                                <span class="studio-stat-num">12+</span>
+                                                <span class="studio-stat-label">Awards Won</span>
+                                            </div>
+                                            <div class="studio-stat-item">
+                                                <span class="studio-stat-num">8yr</span>
+                                                <span class="studio-stat-label">Experience</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h3>Quick Actions</h3>
+                    </div>
+
+                    <!-- Bookings Panel -->
+                    <div class="dash-sub-panel" id="overview-bookings">
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-4">
+                                <div class="mini-stat-card pending">
+                                    <div class="mini-stat-icon"><i class="bi bi-hourglass-split"></i></div>
+                                    <div class="mini-stat-value" id="statPending">0</div>
+                                    <div class="mini-stat-label">Pending</div>
                                 </div>
-                                <div class="dash-card-body quick-actions" id="quickActions">
-                                    <a href="contact.html" class="quick-action-item">
-                                        <i class="bi bi-calendar-plus"></i>
-                                        <div>
-                                            <strong>New Booking</strong>
-                                            <small>Plan your special day</small>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mini-stat-card confirmed">
+                                    <div class="mini-stat-icon"><i class="bi bi-check-circle"></i></div>
+                                    <div class="mini-stat-value" id="statConfirmed">0</div>
+                                    <div class="mini-stat-label">Confirmed</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mini-stat-card completed">
+                                    <div class="mini-stat-icon"><i class="bi bi-trophy"></i></div>
+                                    <div class="mini-stat-value" id="statCompleted">0</div>
+                                    <div class="mini-stat-label">Completed</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>Recent Bookings</h3>
+                                <button class="dash-link-btn" data-goto="bookings">View All <i class="bi bi-arrow-right"></i></button>
+                            </div>
+                            <div class="dash-card-body" id="recentBookings">
+                                <div class="empty-state">
+                                    <i class="bi bi-calendar-x"></i>
+                                    <p>No bookings yet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Panel -->
+                    <div class="dash-sub-panel" id="overview-upcoming">
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3><i class="bi bi-calendar-event" style="color:#2563EB;margin-right:8px;"></i>Upcoming Events</h3>
+                            </div>
+                            <div class="dash-card-body" id="upcomingEvents">
+                                <div class="upcoming-list" id="upcomingList">
+                                    <div class="empty-state">
+                                        <i class="bi bi-calendar-x"></i>
+                                        <p>No upcoming events. Book your next session!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Recommended Services</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="recommend-list">
+                                            <a href="services.html" class="recommend-item">
+                                                <i class="bi bi-camera-reels"></i>
+                                                <div>
+                                                    <strong>Cinematic Videography</strong>
+                                                    <small>Capture every moment in motion</small>
+                                                </div>
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                            <a href="services.html" class="recommend-item">
+                                                <i class="bi bi-collection"></i>
+                                                <div>
+                                                    <strong>Pre-Wedding Shoot</strong>
+                                                    <small>Create your love story</small>
+                                                </div>
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                            <a href="services.html" class="recommend-item">
+                                                <i class="bi bi-badge-4k"></i>
+                                                <div>
+                                                    <strong>Drone Coverage</strong>
+                                                    <small>Aerial perspectives of your day</small>
+                                                </div>
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
                                         </div>
-                                    </a>
-                                    <a href="portfolio.html" class="quick-action-item">
-                                        <i class="bi bi-camera"></i>
-                                        <div>
-                                            <strong>Browse Portfolio</strong>
-                                            <small>See our latest work</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Help & Support</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="help-list">
+                                            <div class="help-item">
+                                                <i class="bi bi-question-circle"></i>
+                                                <div>
+                                                    <strong>How do I book?</strong>
+                                                    <p>Click "Make a Booking" or visit our contact page to send your enquiry.</p>
+                                                </div>
+                                            </div>
+                                            <div class="help-item">
+                                                <i class="bi bi-shield-check"></i>
+                                                <div>
+                                                    <strong>Data Privacy</strong>
+                                                    <p>Your photos and data are securely stored and never shared.</p>
+                                                </div>
+                                            </div>
+                                            <div class="help-item">
+                                                <i class="bi bi-headset"></i>
+                                                <div>
+                                                    <strong>Need Help?</strong>
+                                                    <p>Reach us at <a href="mailto:hello@eternitystudio.com">hello@eternitystudio.com</a></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                    <a href="services.html" class="quick-action-item">
-                                        <i class="bi bi-gem"></i>
-                                        <div>
-                                            <strong>View Services</strong>
-                                            <small>Explore packages</small>
-                                        </div>
-                                    </a>
-                                    <button class="quick-action-item admin-only" data-goto="users" style="display:none;">
-                                        <i class="bi bi-people"></i>
-                                        <div>
-                                            <strong>Manage Users</strong>
-                                            <small>Admin tools</small>
-                                        </div>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,68 +368,232 @@
 
                 <!-- ===== Profile View ===== -->
                 <section class="dash-view" id="view-profile">
-                    <div class="row g-4">
-                        <div class="col-lg-4">
-                            <div class="dash-card">
-                                <div class="dash-card-body text-center profile-card">
-                                    <div class="profile-avatar" id="profileAvatar">ES</div>
-                                    <h3 id="profileName">User Name</h3>
-                                    <p class="profile-role" id="profileRole">Client</p>
-                                    <p class="profile-email" id="profileEmail">email@example.com</p>
+                    <!-- Profile Sub-tabs -->
+                    <div class="dash-sub-tabs" id="profileSubTabs">
+                        <button class="dash-sub-tab active" data-sub="profile-info">Personal Info</button>
+                        <button class="dash-sub-tab" data-sub="profile-security">Security</button>
+                        <button class="dash-sub-tab" data-sub="profile-notifications">Notifications</button>
+                    </div>
+
+                    <!-- Personal Info Panel -->
+                    <div class="dash-sub-panel active" id="profile-info">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="dash-card">
+                                    <div class="dash-card-body text-center profile-card">
+                                        <div class="profile-avatar" id="profileAvatar">ES</div>
+                                        <h3 id="profileName">User Name</h3>
+                                        <p class="profile-role" id="profileRole">Client</p>
+                                        <p class="profile-email" id="profileEmail">email@example.com</p>
+                                        <div class="profile-stats-row">
+                                            <div class="profile-stat">
+                                                <span class="profile-stat-num" id="profileBookingCount">0</span>
+                                                <span class="profile-stat-label">Bookings</span>
+                                            </div>
+                                            <div class="profile-stat">
+                                                <span class="profile-stat-num" id="profileMessageCount">0</span>
+                                                <span class="profile-stat-label">Messages</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Profile Information</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <form id="profileForm">
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profileFirstName">First Name</label>
+                                                        <input type="text" class="form-control" id="profileFirstName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profileLastName">Last Name</label>
+                                                        <input type="text" class="form-control" id="profileLastName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profileEmailInput">Email</label>
+                                                        <input type="email" class="form-control" id="profileEmailInput">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profilePhone">Phone</label>
+                                                        <input type="tel" class="form-control" id="profilePhone">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profileWeddingDate">Wedding Date</label>
+                                                        <input type="text" class="form-control" id="profileWeddingDate" placeholder="DD/MM/YYYY" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="profileLocation">Location</label>
+                                                        <input type="text" class="form-control" id="profileLocation" placeholder="e.g. Mumbai, India">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" class="btn btn-primary-custom">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div id="profileSuccess" class="auth-alert success" style="display:none;margin-top:20px;">
+                                            <i class="bi bi-check-circle"></i> Profile updated successfully!
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h3>Profile Information</h3>
+                    </div>
+
+                    <!-- Security Panel -->
+                    <div class="dash-sub-panel" id="profile-security">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3><i class="bi bi-key" style="color:var(--gold);margin-right:8px;"></i>Change Password</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <form id="passwordForm">
+                                            <div class="form-group">
+                                                <label for="currentPassword">Current Password</label>
+                                                <input type="password" class="form-control" id="currentPassword">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="newPassword">New Password</label>
+                                                <input type="password" class="form-control" id="newPassword">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="confirmNewPassword">Confirm New Password</label>
+                                                <input type="password" class="form-control" id="confirmNewPassword">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary-custom">Update Password</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="dash-card-body">
-                                    <form id="profileForm">
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profileFirstName">First Name</label>
-                                                    <input type="text" class="form-control" id="profileFirstName">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3><i class="bi bi-shield-lock" style="color:#2563EB;margin-right:8px;"></i>Account Security</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="security-list">
+                                            <div class="security-item">
+                                                <div class="security-info">
+                                                    <i class="bi bi-envelope-check"></i>
+                                                    <div>
+                                                        <strong>Email Verified</strong>
+                                                        <small>Your email is verified</small>
+                                                    </div>
                                                 </div>
+                                                <span class="security-status active">Active</span>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profileLastName">Last Name</label>
-                                                    <input type="text" class="form-control" id="profileLastName">
+                                            <div class="security-item">
+                                                <div class="security-info">
+                                                    <i class="bi bi-phone"></i>
+                                                    <div>
+                                                        <strong>Two-Factor Auth</strong>
+                                                        <small>Add an extra layer of security</small>
+                                                    </div>
                                                 </div>
+                                                <span class="security-status inactive">Off</span>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profileEmailInput">Email</label>
-                                                    <input type="email" class="form-control" id="profileEmailInput">
+                                            <div class="security-item">
+                                                <div class="security-info">
+                                                    <i class="bi bi-clock-history"></i>
+                                                    <div>
+                                                        <strong>Login History</strong>
+                                                        <small>Last login: Today</small>
+                                                    </div>
                                                 </div>
+                                                <button class="dash-link-btn">View Log</button>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profilePhone">Phone</label>
-                                                    <input type="tel" class="form-control" id="profilePhone">
+                                            <div class="security-item">
+                                                <div class="security-info">
+                                                    <i class="bi bi-trash3"></i>
+                                                    <div>
+                                                        <strong>Delete Account</strong>
+                                                        <small>Permanently delete your account</small>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profileWeddingDate">Wedding Date</label>
-                                                    <input type="date" class="form-control" id="profileWeddingDate">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="profileLocation">Location</label>
-                                                    <input type="text" class="form-control" id="profileLocation" placeholder="e.g. Mumbai, India">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <button type="submit" class="btn btn-primary-custom">Save Changes</button>
+                                                <button class="dash-link-btn" style="color:#EF4444;">Delete</button>
                                             </div>
                                         </div>
-                                    </form>
-                                    <div id="profileSuccess" class="auth-alert success" style="display:none;margin-top:20px;">
-                                        <i class="bi bi-check-circle"></i> Profile updated successfully!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Panel -->
+                    <div class="dash-sub-panel" id="profile-notifications">
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3><i class="bi bi-bell" style="color:#9333EA;margin-right:8px;"></i>Notification Preferences</h3>
+                            </div>
+                            <div class="dash-card-body">
+                                <div class="notification-settings">
+                                    <div class="notification-item">
+                                        <div class="notification-info">
+                                            <strong>Booking Updates</strong>
+                                            <small>Get notified when your booking status changes</small>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-info">
+                                            <strong>New Messages</strong>
+                                            <small>Receive alerts for new messages from the team</small>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-info">
+                                            <strong>Gallery Uploads</strong>
+                                            <small>Know when new photos are added to your gallery</small>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-info">
+                                            <strong>Marketing & Promotions</strong>
+                                            <small>Exclusive offers and studio news</small>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-info">
+                                            <strong>Weekly Digest</strong>
+                                            <small>Summary of your dashboard activity</small>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -257,36 +603,117 @@
 
                 <!-- ===== Bookings View ===== -->
                 <section class="dash-view" id="view-bookings">
-                    <div class="dash-card">
-                        <div class="dash-card-header">
-                            <h3 id="bookingsTableTitle">My Bookings</h3>
-                            <div class="dash-card-actions">
-                                <select class="form-control form-control-sm" id="bookingStatusFilter" style="width:auto;">
-                                    <option value="all">All Statuses</option>
-                                    <option value="pending">Pending</option>
-                                    <option value="confirmed">Confirmed</option>
-                                    <option value="completed">Completed</option>
-                                </select>
+                    <!-- Bookings Sub-tabs -->
+                    <div class="dash-sub-tabs" id="bookingsSubTabs">
+                        <button class="dash-sub-tab active" data-sub="bookings-all">All Bookings</button>
+                        <button class="dash-sub-tab" data-sub="bookings-timeline">Timeline</button>
+                        <button class="dash-sub-tab" data-sub="bookings-packages">Packages</button>
+                    </div>
+
+                    <!-- All Bookings Panel -->
+                    <div class="dash-sub-panel active" id="bookings-all">
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 id="bookingsTableTitle">My Bookings</h3>
+<div class="dash-card-actions">
+                                     <div class="btn-group btn-group-sm" role="group" id="bookingStatusFilter">
+                                         <input type="radio" class="btn-check" name="statusFilter" id="filterAll" value="all" checked autocomplete="off">
+                                         <label class="btn btn-outline-primary" for="filterAll">All</label>
+                                         <input type="radio" class="btn-check" name="statusFilter" id="filterPending" value="pending" autocomplete="off">
+                                         <label class="btn btn-outline-primary" for="filterPending">Pending</label>
+                                         <input type="radio" class="btn-check" name="statusFilter" id="filterConfirmed" value="confirmed" autocomplete="off">
+                                         <label class="btn btn-outline-primary" for="filterConfirmed">Confirmed</label>
+                                         <input type="radio" class="btn-check" name="statusFilter" id="filterCompleted" value="completed" autocomplete="off">
+                                         <label class="btn btn-outline-primary" for="filterCompleted">Completed</label>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="dash-card-body">
+                                <div class="table-responsive">
+                                    <table class="table dash-table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Client</th>
+                                                <th>Service</th>
+                                                <th>Wedding Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bookingsTableBody"></tbody>
+                                    </table>
+                                </div>
+                                <div class="empty-state" id="bookingsEmpty" style="display:none;">
+                                    <i class="bi bi-calendar-x"></i>
+                                    <p>No bookings found. <a href="contact.html">Make your first booking</a></p>
+                                </div>
                             </div>
                         </div>
-                        <div class="dash-card-body">
-                            <div class="table-responsive">
-                                <table class="table dash-table align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>Client</th>
-                                            <th>Service</th>
-                                            <th>Wedding Date</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="bookingsTableBody"></tbody>
-                                </table>
+                    </div>
+
+                    <!-- Timeline Panel -->
+                    <div class="dash-sub-panel" id="bookings-timeline">
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3><i class="bi bi-calendar-week" style="color:var(--gold);margin-right:8px;"></i>Booking Timeline</h3>
                             </div>
-                            <div class="empty-state" id="bookingsEmpty" style="display:none;">
-                                <i class="bi bi-calendar-x"></i>
-                                <p>No bookings found. <a href="contact.html">Make your first booking</a></p>
+                            <div class="dash-card-body">
+                                <div class="booking-timeline" id="bookingTimeline">
+                                    <div class="empty-state">
+                                        <i class="bi bi-calendar-x"></i>
+                                        <p>No bookings to display on timeline.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Packages Panel -->
+                    <div class="dash-sub-panel" id="bookings-packages">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="package-card">
+                                    <div class="package-badge">Popular</div>
+                                    <div class="package-icon"><i class="bi bi-camera"></i></div>
+                                    <h4>Wedding Photography</h4>
+                                    <p class="package-price">&#8377;85,000</p>
+                                    <ul class="package-features">
+                                        <li><i class="bi bi-check-lg"></i> Full day coverage</li>
+                                        <li><i class="bi bi-check-lg"></i> 500+ edited photos</li>
+                                        <li><i class="bi bi-check-lg"></i> Online gallery</li>
+                                        <li><i class="bi bi-check-lg"></i> Print-ready files</li>
+                                    </ul>
+                                    <a href="contact.html" class="btn btn-primary-custom btn-block">Book Now</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="package-card featured">
+                                    <div class="package-badge gold">Best Value</div>
+                                    <div class="package-icon"><i class="bi bi-camera-reels"></i></div>
+                                    <h4>Photo + Video</h4>
+                                    <p class="package-price">&#8377;1,45,000</p>
+                                    <ul class="package-features">
+                                        <li><i class="bi bi-check-lg"></i> Full day coverage</li>
+                                        <li><i class="bi bi-check-lg"></i> 800+ edited photos</li>
+                                        <li><i class="bi bi-check-lg"></i> Cinematic film</li>
+                                        <li><i class="bi bi-check-lg"></i> Drone shots</li>
+                                    </ul>
+                                    <a href="contact.html" class="btn btn-primary-custom btn-block">Book Now</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="package-card">
+                                    <div class="package-icon"><i class="bi bi-collection"></i></div>
+                                    <h4>Pre-Wedding</h4>
+                                    <p class="package-price">&#8377;35,000</p>
+                                    <ul class="package-features">
+                                        <li><i class="bi bi-check-lg"></i> 4-hour session</li>
+                                        <li><i class="bi bi-check-lg"></i> 200+ edited photos</li>
+                                        <li><i class="bi bi-check-lg"></i> 2 locations</li>
+                                        <li><i class="bi bi-check-lg"></i> Online gallery</li>
+                                    </ul>
+                                    <a href="contact.html" class="btn btn-primary-custom btn-block">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,33 +721,152 @@
 
                 <!-- ===== Galleries View ===== -->
                 <section class="dash-view" id="view-galleries">
-                    <div class="row g-4">
-                        <div class="col-lg-8">
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h3>Photo Galleries</h3>
+                    <!-- Galleries Sub-tabs -->
+                    <div class="dash-sub-tabs" id="galleriesSubTabs">
+                        <button class="dash-sub-tab active" data-sub="galleries-all">All Galleries</button>
+                        <button class="dash-sub-tab" data-sub="galleries-info">Info & Downloads</button>
+                    </div>
+
+                    <!-- All Galleries Panel -->
+                    <div class="dash-sub-panel active" id="galleries-all">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Photo Galleries</h3>
+                                        <span class="gallery-count-badge" id="galleryCountBadge">9 collections</span>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="row g-3" id="galleryGrid"></div>
+                                        <div class="empty-state" id="galleriesEmpty" style="display:none;">
+                                            <i class="bi bi-images"></i>
+                                            <p>No galleries uploaded yet.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="dash-card-body">
-                                    <div class="row g-3" id="galleryGrid"></div>
-                                    <div class="empty-state" id="galleriesEmpty" style="display:none;">
-                                        <i class="bi bi-images"></i>
-                                        <p>No galleries uploaded yet.</p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Storage Overview</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="storage-widget">
+                                            <div class="storage-bar">
+                                                <div class="storage-fill" style="width:35%;"></div>
+                                            </div>
+                                            <div class="storage-info">
+                                                <span>3.5 GB used of 10 GB</span>
+                                            </div>
+                                        </div>
+                                        <div class="storage-details">
+                                            <div class="storage-detail-item">
+                                                <i class="bi bi-image" style="color:#2563EB;"></i>
+                                                <span>Photos</span>
+                                                <strong>2.8 GB</strong>
+                                            </div>
+                                            <div class="storage-detail-item">
+                                                <i class="bi bi-film" style="color:#9333EA;"></i>
+                                                <span>Videos</span>
+                                                <strong>0.7 GB</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dash-card" style="margin-top:24px;">
+                                    <div class="dash-card-header">
+                                        <h3>Recent Uploads</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="recent-uploads-list">
+                                            <div class="recent-upload-item">
+                                                <i class="bi bi-image-fill"></i>
+                                                <div>
+                                                    <strong>The Royal Celebration</strong>
+                                                    <small>152 photos &bull; 2 days ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="recent-upload-item">
+                                                <i class="bi bi-image-fill"></i>
+                                                <div>
+                                                    <strong>Enchanted Garden</strong>
+                                                    <small>98 photos &bull; 5 days ago</small>
+                                                </div>
+                                            </div>
+                                            <div class="recent-upload-item">
+                                                <i class="bi bi-image-fill"></i>
+                                                <div>
+                                                    <strong>Coastal Vows</strong>
+                                                    <small>124 photos &bull; 1 week ago</small>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="dash-card">
-                                <div class="dash-card-header">
-                                    <h3>Gallery Details</h3>
+                    </div>
+
+                    <!-- Info & Downloads Panel -->
+                    <div class="dash-sub-panel" id="galleries-info">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Download Options</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="download-options">
+                                            <div class="download-option">
+                                                <div class="download-option-info">
+                                                    <i class="bi bi-image"></i>
+                                                    <div>
+                                                        <strong>Individual Photos</strong>
+                                                        <small>Download single images in full resolution</small>
+                                                    </div>
+                                                </div>
+                                                <i class="bi bi-check-circle-fill" style="color:#16A34A;"></i>
+                                            </div>
+                                            <div class="download-option">
+                                                <div class="download-option-info">
+                                                    <i class="bi bi-archive"></i>
+                                                    <div>
+                                                        <strong>Full Gallery ZIP</strong>
+                                                        <small>Download all photos from a collection</small>
+                                                    </div>
+                                                </div>
+                                                <i class="bi bi-check-circle-fill" style="color:#16A34A;"></i>
+                                            </div>
+                                            <div class="download-option">
+                                                <div class="download-option-info">
+                                                    <i class="bi bi-printer"></i>
+                                                    <div>
+                                                        <strong>Print-Ready Files</strong>
+                                                        <small>High-res files formatted for printing</small>
+                                                    </div>
+                                                </div>
+                                                <i class="bi bi-check-circle-fill" style="color:#16A34A;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="dash-card-body">
-                                    <p class="text-muted" style="font-size:14px;">Click on a gallery to view the photos in detail. New galleries are added as the team delivers your edited collection.</p>
-                                    <ul class="gallery-info-list">
-                                        <li><i class="bi bi-check-circle-fill"></i> Full-resolution downloads included</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> Digital backup for 5 years</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> Print-ready files</li>
-                                    </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Gallery Info</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <ul class="gallery-info-list">
+                                            <li><i class="bi bi-check-circle-fill"></i> Full-resolution downloads included</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Digital backup for 5 years</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Print-ready files</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Private sharing link</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Social media optimized versions</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Color-corrected & retouched</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -329,15 +875,119 @@
 
                 <!-- ===== Messages View ===== -->
                 <section class="dash-view" id="view-messages">
-                    <div class="dash-card">
-                        <div class="dash-card-header">
-                            <h3 id="messagesTitle">Messages</h3>
+                    <!-- Messages Sub-tabs -->
+                    <div class="dash-sub-tabs" id="messagesSubTabs">
+                        <button class="dash-sub-tab active" data-sub="messages-inbox">Inbox</button>
+                        <button class="dash-sub-tab" data-sub="messages-compose">Compose</button>
+                    </div>
+
+                    <!-- Inbox Panel -->
+                    <div class="dash-sub-panel active" id="messages-inbox">
+                        <div class="row g-4 mb-3">
+                            <div class="col-md-4">
+                                <div class="mini-stat-card gold">
+                                    <div class="mini-stat-icon"><i class="bi bi-envelope"></i></div>
+                                    <div class="mini-stat-value" id="totalMsgCount">0</div>
+                                    <div class="mini-stat-label">Total Messages</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mini-stat-card blue">
+                                    <div class="mini-stat-icon"><i class="bi bi-envelope-plus"></i></div>
+                                    <div class="mini-stat-value" id="newMsgCount">0</div>
+                                    <div class="mini-stat-label">New Today</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mini-stat-card green">
+                                    <div class="mini-stat-icon"><i class="bi bi-check-all"></i></div>
+                                    <div class="mini-stat-value" id="readMsgCount">0</div>
+                                    <div class="mini-stat-label">Read</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="dash-card-body">
-                            <div class="messages-list" id="messagesList">
-                                <div class="empty-state">
-                                    <i class="bi bi-envelope"></i>
-                                    <p>No messages yet. Messages you send from the contact form will appear here.</p>
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 id="messagesTitle">Messages</h3>
+                            </div>
+                            <div class="dash-card-body">
+                                <div class="messages-list" id="messagesList">
+                                    <div class="empty-state">
+                                        <i class="bi bi-envelope"></i>
+                                        <p>No messages yet. Messages you send from the contact form will appear here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compose Panel -->
+                    <div class="dash-sub-panel" id="messages-compose">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3><i class="bi bi-pencil-square" style="color:var(--gold);margin-right:8px;"></i>Compose Message</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <form id="composeForm">
+                                            <div class="form-group">
+                                                <label for="composeTo">To</label>
+                                                <input type="text" class="form-control" id="composeTo" value="Eternity Studio Team" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="composeSubject">Subject</label>
+                                                <input type="text" class="form-control" id="composeSubject" placeholder="What is this about?">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="composeMessage">Message</label>
+                                                <textarea class="form-control" id="composeMessage" rows="6" placeholder="Write your message here..."></textarea>
+                                            </div>
+                                            <div class="compose-actions">
+                                                <button type="submit" class="btn btn-primary-custom">
+                                                    <i class="bi bi-send"></i> Send Message
+                                                </button>
+                                                <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('composeForm').reset();">
+                                                    <i class="bi bi-x-lg"></i> Clear
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div id="composeSuccess" class="auth-alert success" style="display:none;margin-top:20px;">
+                                            <i class="bi bi-check-circle"></i> Message sent successfully!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Quick Contacts</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="contact-list">
+                                            <div class="contact-item">
+                                                <div class="contact-avatar">ES</div>
+                                                <div>
+                                                    <strong>Eternity Studio</strong>
+                                                    <small>General Enquiries</small>
+                                                </div>
+                                            </div>
+                                            <div class="contact-item">
+                                                <div class="contact-avatar" style="background:linear-gradient(135deg,#2563EB,#1D4ED8);">BK</div>
+                                                <div>
+                                                    <strong>Booking Desk</strong>
+                                                    <small>Schedule & Availability</small>
+                                                </div>
+                                            </div>
+                                            <div class="contact-item">
+                                                <div class="contact-avatar" style="background:linear-gradient(135deg,#9333EA,#7C3AED);">SP</div>
+                                                <div>
+                                                    <strong>Support</strong>
+                                                    <small>Technical Help</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -346,30 +996,107 @@
 
                 <!-- ===== Users View (Admin Only) ===== -->
                 <section class="dash-view" id="view-users">
-                    <div class="dash-card">
-                        <div class="dash-card-header">
-                            <h3>Registered Users</h3>
-                            <span class="badge bg-warning text-dark" id="userCountBadge">0 users</span>
-                        </div>
-                        <div class="dash-card-body">
-                            <div class="table-responsive">
-                                <table class="table dash-table align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Role</th>
-                                            <th>Joined</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="usersTableBody"></tbody>
-                                </table>
+                    <!-- Users Sub-tabs -->
+                    <div class="dash-sub-tabs" id="usersSubTabs">
+                        <button class="dash-sub-tab active" data-sub="users-all">All Users</button>
+                        <button class="dash-sub-tab" data-sub="users-stats">Statistics</button>
+                    </div>
+
+                    <!-- All Users Panel -->
+                    <div class="dash-sub-panel active" id="users-all">
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>Registered Users</h3>
+                                <span class="badge bg-warning text-dark" id="userCountBadge">0 users</span>
                             </div>
-                            <div class="empty-state" id="usersEmpty" style="display:none;">
-                                <i class="bi bi-people"></i>
-                                <p>No users registered yet.</p>
+                            <div class="dash-card-body">
+                                <div class="table-responsive">
+                                    <table class="table dash-table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Role</th>
+                                                <th>Joined</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="usersTableBody"></tbody>
+                                    </table>
+                                </div>
+                                <div class="empty-state" id="usersEmpty" style="display:none;">
+                                    <i class="bi bi-people"></i>
+                                    <p>No users registered yet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Panel -->
+                    <div class="dash-sub-panel" id="users-stats">
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-3">
+                                <div class="mini-stat-card gold">
+                                    <div class="mini-stat-icon"><i class="bi bi-people"></i></div>
+                                    <div class="mini-stat-value" id="usersTotalCount">0</div>
+                                    <div class="mini-stat-label">Total Users</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat-card purple">
+                                    <div class="mini-stat-icon"><i class="bi bi-person-gear"></i></div>
+                                    <div class="mini-stat-value" id="usersAdminCount">0</div>
+                                    <div class="mini-stat-label">Admins</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat-card blue">
+                                    <div class="mini-stat-icon"><i class="bi bi-person"></i></div>
+                                    <div class="mini-stat-value" id="usersClientCount">0</div>
+                                    <div class="mini-stat-label">Clients</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mini-stat-card green">
+                                    <div class="mini-stat-icon"><i class="bi bi-person-plus"></i></div>
+                                    <div class="mini-stat-value" id="usersNewThisWeek">0</div>
+                                    <div class="mini-stat-label">New This Week</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Role Distribution</h3>
+                                    </div>
+                                    <div class="dash-card-body">
+                                        <div class="role-chart" id="roleChart">
+                                            <div class="role-chart-bar">
+                                                <div class="role-chart-segment admin" id="adminBar" style="width:0%;">
+                                                    <span>Admin</span>
+                                                </div>
+                                                <div class="role-chart-segment client" id="clientBar" style="width:0%;">
+                                                    <span>Client</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="dash-card">
+                                    <div class="dash-card-header">
+                                        <h3>Recent Registrations</h3>
+                                    </div>
+                                    <div class="dash-card-body" id="recentUsersList">
+                                        <div class="empty-state">
+                                            <i class="bi bi-people"></i>
+                                            <p>No users yet.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

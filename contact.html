@@ -46,6 +46,10 @@
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                 </ul>
+                <div class="navbar-auth-mobile d-lg-none">
+                    <a href="signin.html" class="nav-link auth-link-btn">Sign In</a>
+                    <a href="signup.html" class="btn btn-primary-custom auth-signup-btn w-100 mt-2">Sign Up</a>
+                </div>
             </div>
             <div class="navbar-nav-auth">
                 <div class="auth-nav-item"></div>
@@ -170,20 +174,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="weddingDate">Wedding Date</label>
-                                        <input type="date" class="form-control" id="weddingDate">
+                                        <input type="text" class="form-control" id="weddingDate" placeholder="DD/MM/YYYY" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="service">Service Interested In</label>
-                                        <select class="form-control" id="service">
-                                            <option value="">Select a service</option>
-                                            <option value="wedding">Wedding Photography</option>
-                                            <option value="videography">Cinematic Videography</option>
-                                            <option value="prewedding">Pre-Wedding Shoot</option>
-                                            <option value="engagement">Engagement Session</option>
-                                            <option value="custom">Custom Package</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="service" placeholder="e.g. Wedding Photography, Videography, Pre-Wedding Shoot">
                                     </div>
                                 </div>
                                 <div class="col-12">

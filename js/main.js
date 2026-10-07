@@ -64,6 +64,11 @@
                 y: 30,
                 duration: 0.8,
             }, '-=0.5')
+            .from('.hero-description', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+            }, '-=0.5')
             .from('.hero-cta', {
                 opacity: 0,
                 y: 30,
@@ -728,6 +733,27 @@
         }
     }
 
+    // --- Highlight Active Navigation Link ---
+    function initActiveNavHighlight() {
+        var currentPath = window.location.pathname;
+        var page = currentPath.split('/').pop() || 'index.html';
+        
+        // Remove active from all nav links
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        // Add active to current page link
+        var activeLink = document.querySelector('.navbar-nav .nav-link[href="' + page + '"]');
+        if (activeLink) {
+            activeLink.classList.add('active');
+        } else if (page === '' || page === '/') {
+            // Default to index.html for root
+            var homeLink = document.querySelector('.navbar-nav .nav-link[href="index.html"]');
+            if (homeLink) homeLink.classList.add('active');
+        }
+    }
+
     // Global toggle user dropdown
     window.toggleUserMenu = function (e) {
         e.stopPropagation();
@@ -880,6 +906,26 @@
         });
     }
 
+    // --- Google Auth Button Handler (Redirects to Error Page as Placeholder) ---
+    function initGoogleAuth() {
+        var googleSigninBtn = document.querySelector('.btn-social-google:not(#googleSignupBtn)');
+        var googleSignupBtn = document.getElementById('googleSignupBtn');
+
+        if (googleSigninBtn) {
+            googleSigninBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'error.html?reason=google-oauth-not-implemented';
+            });
+        }
+
+        if (googleSignupBtn) {
+            googleSignupBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'error.html?reason=google-oauth-not-implemented';
+            });
+        }
+    }
+
     // --- Auth Alert Helper ---
     function showAuthAlert(message, type) {
         var alertEl = document.getElementById('loginAlert') || document.getElementById('signupAlert');
@@ -986,6 +1032,19 @@
                 '<span class="topbar-user-role">' + (isAdmin ? 'Administrator' : 'Client') + '</span></div>';
         }
 
+        // Sidebar user
+        var sidebarUserAvatar = document.getElementById('sidebarUserAvatar');
+        var sidebarUserName = document.getElementById('sidebarUserName');
+        var sidebarUserEmail = document.getElementById('sidebarUserEmail');
+        var sidebarUserRole = document.getElementById('sidebarUserRole');
+        if (sidebarUserAvatar && sidebarUserName && sidebarUserEmail && sidebarUserRole) {
+            var initials = (user.firstName.charAt(0) + user.lastName.charAt(0)).toUpperCase();
+            sidebarUserAvatar.textContent = initials;
+            sidebarUserName.textContent = user.firstName + ' ' + user.lastName;
+            sidebarUserEmail.textContent = user.email;
+            sidebarUserRole.textContent = isAdmin ? 'Administrator' : 'Client';
+        }
+
         // Profile display
         setProfileDisplay(user, isAdmin);
 
@@ -1014,6 +1073,14 @@
         initProfileForm(user);
         initBookingStatusFilter(user, isAdmin);
         initGalleryView();
+        initSubTabs();
+        initComposeForm();
+        initPasswordForm();
+        renderActivityTimeline(user, isAdmin);
+        renderUpcomingEvents(user, isAdmin);
+        renderBookingTimeline(user, isAdmin);
+        renderUserStats();
+        renderProfileStats(user);
     }
 
     // --- Set profile display ---
@@ -1086,12 +1153,19 @@
 
         // Mobile sidebar toggle
         var toggle = document.getElementById('sidebarToggle');
+        var closeBtn = document.getElementById('sidebarClose');
         var sidebar = document.getElementById('dashboardSidebar');
         var backdrop = document.getElementById('sidebarBackdrop');
         if (toggle) {
             toggle.addEventListener('click', function () {
                 sidebar.classList.add('open');
                 backdrop.classList.add('show');
+            });
+        }
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                sidebar.classList.remove('open');
+                backdrop.classList.remove('show');
             });
         }
         if (backdrop) {
@@ -1137,6 +1211,18 @@
 
         // Messages
         renderMessages(myMessages);
+
+        // Message stats
+        var totalMsgEl = document.getElementById('totalMsgCount');
+        var newMsgEl = document.getElementById('newMsgCount');
+        var readMsgEl = document.getElementById('readMsgCount');
+        if (totalMsgEl) totalMsgEl.textContent = myMessages.length;
+        if (newMsgEl) {
+            var today = new Date(); today.setHours(0,0,0,0);
+            var newToday = myMessages.filter(function (m) { return m.createdAt && new Date(m.createdAt) >= today; }).length;
+            newMsgEl.textContent = newToday;
+        }
+        if (readMsgEl) readMsgEl.textContent = myMessages.length;
     }
 
     // --- Recent bookings ---
@@ -1241,21 +1327,24 @@
 
     // --- Booking status filter ---
     function initBookingStatusFilter(user, isAdmin) {
-        var filter = document.getElementById('bookingStatusFilter');
-        if (!filter) return;
+        var filterContainer = document.getElementById('bookingStatusFilter');
+        if (!filterContainer) return;
 
-        filter.addEventListener('change', function () {
-            var bookings = getBookings();
-            var myBookings = isAdmin ? bookings : bookings.filter(function (b) {
-                return b.email === user.email;
-            });
-
-            if (this.value !== 'all') {
-                myBookings = myBookings.filter(function (b) {
-                    return (b.status || 'pending') === filter.value;
+        var radioButtons = filterContainer.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                var bookings = getBookings();
+                var myBookings = isAdmin ? bookings : bookings.filter(function (b) {
+                    return b.email === user.email;
                 });
-            }
-            renderBookingsTable(myBookings, isAdmin);
+
+                if (this.value !== 'all') {
+                    myBookings = myBookings.filter(function (b) {
+                        return (b.status || 'pending') === this.value;
+                    });
+                }
+                renderBookingsTable(myBookings, isAdmin);
+            });
         });
     }
 
@@ -1412,14 +1501,342 @@
 
     function initDashboardDisplay(user) {
         var topbarUser = document.getElementById('topbarUser');
+        var isAdmin = user.role === 'admin';
         if (topbarUser) {
             var initials = (user.firstName.charAt(0) + user.lastName.charAt(0)).toUpperCase();
-            var isAdmin = user.role === 'admin';
             topbarUser.innerHTML =
                 '<div class="profile-avatar" style="width:38px;height:38px;font-size:14px;">' + initials + '</div>' +
                 '<div class="topbar-user-name">' + user.firstName + ' ' + user.lastName +
                 '<span class="topbar-user-role">' + (isAdmin ? 'Administrator' : 'Client') + '</span></div>';
         }
+
+        // Sidebar user
+        var sidebarUserAvatar = document.getElementById('sidebarUserAvatar');
+        var sidebarUserName = document.getElementById('sidebarUserName');
+        var sidebarUserEmail = document.getElementById('sidebarUserEmail');
+        var sidebarUserRole = document.getElementById('sidebarUserRole');
+        if (sidebarUserAvatar && sidebarUserName && sidebarUserEmail && sidebarUserRole) {
+            var initials = (user.firstName.charAt(0) + user.lastName.charAt(0)).toUpperCase();
+            sidebarUserAvatar.textContent = initials;
+            sidebarUserName.textContent = user.firstName + ' ' + user.lastName;
+            sidebarUserEmail.textContent = user.email;
+            sidebarUserRole.textContent = isAdmin ? 'Administrator' : 'Client';
+        }
+
+        // Topbar email
+        var topbarUserEmail = document.getElementById('topbarUserEmail');
+        if (topbarUserEmail) {
+            topbarUserEmail.textContent = user.email;
+        }
+    }
+
+    // --- Sub-tab switching ---
+    function initSubTabs() {
+        document.querySelectorAll('.dash-sub-tabs').forEach(function (tabsContainer) {
+            var tabs = tabsContainer.querySelectorAll('.dash-sub-tab');
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(function (t) { t.classList.remove('active'); });
+                    this.classList.add('active');
+
+                    var panelId = this.dataset.sub;
+                    var parent = tabsContainer.parentElement;
+                    parent.querySelectorAll('.dash-sub-panel').forEach(function (p) { p.classList.remove('active'); });
+                    var panel = parent.querySelector('#' + panelId);
+                    if (panel) panel.classList.add('active');
+                });
+            });
+        });
+    }
+
+    // --- Activity Timeline ---
+    function renderActivityTimeline(user, isAdmin) {
+        var container = document.getElementById('activityTimeline');
+        if (!container) return;
+
+        var bookings = getBookings();
+        var messages = getMessages();
+        var activities = [];
+
+        var myBookings = isAdmin ? bookings : bookings.filter(function (b) { return b.email === user.email; });
+        var myMessages = isAdmin ? messages : messages.filter(function (m) { return m.email === user.email; });
+
+        myBookings.forEach(function (b) {
+            var date = b.createdAt ? new Date(b.createdAt) : new Date();
+            activities.push({
+                title: 'Booking: ' + b.firstName + ' ' + b.lastName,
+                desc: (b.service || 'Wedding Photography') + ' — ' + (b.status || 'pending'),
+                date: date,
+                dot: b.status === 'completed' ? 'green' : b.status === 'confirmed' ? 'blue' : 'gold'
+            });
+        });
+
+        myMessages.forEach(function (m) {
+            var date = m.createdAt ? new Date(m.createdAt) : new Date();
+            activities.push({
+                title: 'Message: ' + m.subject,
+                desc: 'From ' + m.from,
+                date: date,
+                dot: 'gold'
+            });
+        });
+
+        activities.sort(function (a, b) { return b.date - a.date; });
+
+        if (activities.length === 0) {
+            container.innerHTML =
+                '<div class="activity-item">' +
+                    '<div class="activity-dot gold"></div>' +
+                    '<div class="activity-content">' +
+                        '<strong>Welcome to Eternity Studio</strong>' +
+                        '<p>Your dashboard is ready. Start by making your first booking.</p>' +
+                        '<small><i class="bi bi-clock"></i> Just now</small>' +
+                    '</div>' +
+                '</div>';
+            return;
+        }
+
+        var html = '';
+        activities.slice(0, 8).forEach(function (a) {
+            var dateStr = a.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+            html += '<div class="activity-item">' +
+                '<div class="activity-dot ' + a.dot + '"></div>' +
+                '<div class="activity-content">' +
+                    '<strong>' + escapeHtml(a.title) + '</strong>' +
+                    '<p>' + escapeHtml(a.desc) + '</p>' +
+                    '<small><i class="bi bi-clock"></i> ' + dateStr + '</small>' +
+                '</div>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    // --- Upcoming Events ---
+    function renderUpcomingEvents(user, isAdmin) {
+        var container = document.getElementById('upcomingList');
+        if (!container) return;
+
+        var bookings = getBookings();
+        var myBookings = isAdmin ? bookings : bookings.filter(function (b) { return b.email === user.email; });
+        var upcoming = myBookings.filter(function (b) {
+            return b.weddingDate && new Date(b.weddingDate) >= new Date() && b.status !== 'completed';
+        }).sort(function (a, b) { return new Date(a.weddingDate) - new Date(b.weddingDate); });
+
+        if (upcoming.length === 0) {
+            container.innerHTML = '<div class="empty-state"><i class="bi bi-calendar-x"></i><p>No upcoming events. Book your next session!</p></div>';
+            return;
+        }
+
+        var serviceNames = {
+            wedding: 'Wedding Photography',
+            videography: 'Cinematic Videography',
+            prewedding: 'Pre-Wedding Shoot',
+            engagement: 'Engagement Session',
+            custom: 'Custom Package'
+        };
+
+        var html = '';
+        upcoming.slice(0, 5).forEach(function (b) {
+            var d = new Date(b.weddingDate);
+            var day = d.getDate();
+            var month = d.toLocaleString('en-US', { month: 'short' });
+            html += '<div class="upcoming-item">' +
+                '<div class="upcoming-date"><span class="day">' + day + '</span><span class="month">' + month + '</span></div>' +
+                '<div class="upcoming-info"><strong>' + b.firstName + ' ' + b.lastName + '</strong><small>' + (serviceNames[b.service] || b.service) + '</small></div>' +
+                '<span class="status-badge ' + (b.status || 'pending') + '">' + (b.status || 'pending') + '</span>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+
+        // Also update overview stats
+        var pending = myBookings.filter(function (b) { return (b.status || 'pending') === 'pending'; }).length;
+        var confirmed = myBookings.filter(function (b) { return b.status === 'confirmed'; }).length;
+        var completed = myBookings.filter(function (b) { return b.status === 'completed'; }).length;
+        var statPending = document.getElementById('statPending');
+        var statConfirmed = document.getElementById('statConfirmed');
+        var statCompleted = document.getElementById('statCompleted');
+        if (statPending) statPending.textContent = pending;
+        if (statConfirmed) statConfirmed.textContent = confirmed;
+        if (statCompleted) statCompleted.textContent = completed;
+    }
+
+    // --- Booking Timeline ---
+    function renderBookingTimeline(user, isAdmin) {
+        var container = document.getElementById('bookingTimeline');
+        if (!container) return;
+
+        var bookings = getBookings();
+        var myBookings = isAdmin ? bookings : bookings.filter(function (b) { return b.email === user.email; });
+
+        if (myBookings.length === 0) {
+            container.innerHTML = '<div class="empty-state"><i class="bi bi-calendar-x"></i><p>No bookings to display on timeline.</p></div>';
+            return;
+        }
+
+        var serviceNames = {
+            wedding: 'Wedding Photography',
+            videography: 'Cinematic Videography',
+            prewedding: 'Pre-Wedding Shoot',
+            engagement: 'Engagement Session',
+            custom: 'Custom Package'
+        };
+
+        var sorted = myBookings.slice().sort(function (a, b) { return new Date(b.createdAt || 0) - new Date(a.createdAt || 0); });
+
+        var html = '';
+        sorted.forEach(function (b) {
+            var created = b.createdAt ? new Date(b.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Unknown date';
+            var wedding = b.weddingDate ? new Date(b.weddingDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'TBD';
+            html += '<div class="timeline-item">' +
+                '<div class="timeline-dot ' + (b.status || 'pending') + '"></div>' +
+                '<div class="timeline-card">' +
+                    '<div class="timeline-card-header">' +
+                        '<strong>' + b.firstName + ' ' + b.lastName + '</strong>' +
+                        '<span class="status-badge ' + (b.status || 'pending') + '">' + (b.status || 'pending') + '</span>' +
+                    '</div>' +
+                    '<p>' + (serviceNames[b.service] || b.service) + '</p>' +
+                    '<small><i class="bi bi-calendar"></i> Wedding: ' + wedding + ' &nbsp;&bull;&nbsp; Booked: ' + created + '</small>' +
+                '</div>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    // --- User Stats (Admin) ---
+    function renderUserStats() {
+        var users = getUsers();
+        var total = users.length;
+        var admins = users.filter(function (u) { return u.role === 'admin'; }).length;
+        var clients = total - admins;
+        var weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        var newThisWeek = users.filter(function (u) {
+            return u.createdAt && new Date(u.createdAt) >= weekAgo;
+        }).length;
+
+        var el;
+        el = document.getElementById('usersTotalCount'); if (el) el.textContent = total;
+        el = document.getElementById('usersAdminCount'); if (el) el.textContent = admins;
+        el = document.getElementById('usersClientCount'); if (el) el.textContent = clients;
+        el = document.getElementById('usersNewThisWeek'); if (el) el.textContent = newThisWeek;
+
+        // Role chart
+        var adminBar = document.getElementById('adminBar');
+        var clientBar = document.getElementById('clientBar');
+        if (adminBar && clientBar) {
+            var adminPct = total > 0 ? Math.round((admins / total) * 100) : 0;
+            var clientPct = total > 0 ? 100 - adminPct : 0;
+            adminBar.style.width = adminPct + '%';
+            adminBar.querySelector('span').textContent = 'Admin (' + admins + ')';
+            clientBar.style.width = clientPct + '%';
+            clientBar.querySelector('span').textContent = 'Client (' + clients + ')';
+        }
+
+        // Recent registrations list
+        var recentContainer = document.getElementById('recentUsersList');
+        if (recentContainer) {
+            if (users.length === 0) {
+                recentContainer.innerHTML = '<div class="empty-state"><i class="bi bi-people"></i><p>No users yet.</p></div>';
+            } else {
+                var recent = users.slice().sort(function (a, b) {
+                    return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+                }).slice(0, 5);
+                var html = '';
+                recent.forEach(function (u) {
+                    var initials = (u.firstName.charAt(0) + u.lastName.charAt(0)).toUpperCase();
+                    var joined = u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—';
+                    html += '<div class="message-item">' +
+                        '<div class="message-item-icon"><span style="font-size:13px;font-weight:700;">' + initials + '</span></div>' +
+                        '<div class="message-item-body">' +
+                            '<h5>' + escapeHtml(u.firstName + ' ' + u.lastName) + '</h5>' +
+                            '<p>' + escapeHtml(u.email) + '</p>' +
+                            '<small><i class="bi bi-clock"></i> Joined ' + joined + '</small>' +
+                        '</div>' +
+                        '<span class="role-badge ' + (u.role === 'admin' ? 'admin' : 'client') + '">' + (u.role === 'admin' ? 'admin' : 'client') + '</span>' +
+                    '</div>';
+                });
+                recentContainer.innerHTML = html;
+            }
+        }
+    }
+
+    // --- Profile Stats ---
+    function renderProfileStats(user) {
+        var bookings = getBookings();
+        var messages = getMessages();
+        var myBookings = bookings.filter(function (b) { return b.email === user.email; });
+        var myMessages = messages.filter(function (m) { return m.email === user.email; });
+
+        var el;
+        el = document.getElementById('profileBookingCount'); if (el) el.textContent = myBookings.length;
+        el = document.getElementById('profileMessageCount'); if (el) el.textContent = myMessages.length;
+    }
+
+    // --- Compose Form ---
+    function initComposeForm() {
+        var form = document.getElementById('composeForm');
+        var success = document.getElementById('composeSuccess');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var subject = document.getElementById('composeSubject').value.trim();
+            var message = document.getElementById('composeMessage').value.trim();
+            if (!subject || !message) return;
+
+            var user = getCurrentUser();
+            var messages = getMessages();
+            messages.push({
+                id: Date.now(),
+                from: user ? user.firstName + ' ' + user.lastName : 'Guest',
+                email: user ? user.email : '',
+                subject: subject,
+                body: message,
+                createdAt: new Date().toISOString()
+            });
+            saveMessages(messages);
+
+            form.reset();
+            if (success) {
+                success.style.display = 'flex';
+                setTimeout(function () { success.style.display = 'none'; }, 3000);
+            }
+
+            // Refresh messages list
+            var myMessages = user ? messages.filter(function (m) { return m.email === user.email; }) : messages;
+            renderMessages(myMessages);
+        });
+    }
+
+    // --- Password Form ---
+    function initPasswordForm() {
+        var form = document.getElementById('passwordForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var current = document.getElementById('currentPassword').value;
+            var newPass = document.getElementById('newPassword').value;
+            var confirm = document.getElementById('confirmNewPassword').value;
+
+            if (!current || !newPass || !confirm) return;
+            if (newPass.length < 6) return;
+            if (newPass !== confirm) return;
+
+            var user = getCurrentUser();
+            if (!user) return;
+
+            var users = getUsers();
+            var idx = users.findIndex(function (u) { return u.id === user.id; });
+            if (idx !== -1 && users[idx].password === current) {
+                users[idx].password = newPass;
+                saveUsers(users);
+                form.reset();
+                alert('Password updated successfully!');
+            } else {
+                alert('Current password is incorrect.');
+            }
+        });
     }
 
     // --- Gallery view ---
@@ -1495,8 +1912,10 @@
         initServiceCardTilt();
         initFooterLinks();
         initAuthNav();
+        initActiveNavHighlight();
         initSignupForm();
         initSigninForm();
+        initGoogleAuth();
         initDashboard();
 
         // Delayed cursor init

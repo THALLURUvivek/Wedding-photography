@@ -56,6 +56,10 @@
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <div class="navbar-auth-mobile d-lg-none">
+                    <a href="signin.html" class="nav-link auth-link-btn">Sign In</a>
+                    <a href="signup.html" class="btn btn-primary-custom auth-signup-btn w-100 mt-2">Sign Up</a>
+                </div>
             </div>
             <div class="navbar-nav-auth">
                 <div class="auth-nav-item"></div>
@@ -85,6 +89,15 @@
                     </h1>
                     <p class="hero-subtitle" data-anim="subtitle">
                         Where every frame tells a love story, and every moment becomes an everlasting memory
+                    </p>
+                    <p class="hero-description" data-anim="subtitle">
+                        From intimate ceremonies to grand celebrations, we blend editorial elegance with candid emotion — delivering a curated gallery of timeless photographs and cinematic films that you'll cherish for generations.
+                    </p>
+                    <p class="hero-description" data-anim="subtitle">
+                        Every wedding is unique, and we treat it as such — crafting a visual narrative that reflects your personal style, cultural traditions, and the authentic moments that make your day truly yours.
+                    </p>
+                    <p class="hero-description" data-anim="subtitle">
+                        With a dedication to artistry and an eye for the unseen details, we capture not just how your day looked, but how it felt — the nervous anticipation, the quiet tears, the uncontainable joy.
                     </p>
                     <div class="hero-cta" data-anim="cta">
                         <a href="portfolio.html" class="btn btn-hero-primary">View Portfolio</a>
@@ -138,7 +151,7 @@
                             <div class="stat-item">
                                 <span class="stat-number" data-count="500">0</span>
                                 <span class="stat-plus">+</span>
-                                <span class="stat-label">Weddings Captured</span>
+                            <span class="stat-label">Weddings Captured</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number" data-count="15">0</span>
@@ -800,20 +813,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="weddingDate">Wedding Date</label>
-                                        <input type="date" class="form-control" id="weddingDate">
+                                        <input type="text" class="form-control" id="weddingDate" placeholder="DD/MM/YYYY" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="service">Service Interested In</label>
-                                        <select class="form-control" id="service">
-                                            <option value="">Select a service</option>
-                                            <option value="wedding">Wedding Photography</option>
-                                            <option value="videography">Cinematic Videography</option>
-                                            <option value="prewedding">Pre-Wedding Shoot</option>
-                                            <option value="engagement">Engagement Session</option>
-                                            <option value="custom">Custom Package</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="service" placeholder="e.g. Wedding Photography, Videography, Pre-Wedding Shoot">
                                     </div>
                                 </div>
                                 <div class="col-12">
