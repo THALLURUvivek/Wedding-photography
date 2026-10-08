@@ -3124,9 +3124,9 @@ body:not(.dark-theme) .auth-section .auth-footer .btn-auth-footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 32px 22px 24px;
+    padding: 8px 22px 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    gap: 16px;
+    gap: 10px;
 }
 
 .sidebar-brand a {
@@ -3136,9 +3136,9 @@ body:not(.dark-theme) .auth-section .auth-footer .btn-auth-footer {
 }
 
 .sidebar-brand .brand-icon {
-    height: 160px;
-    width: 160px;
-    border-radius: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 16px;
     filter: sepia(1) saturate(5) hue-rotate(5deg) brightness(1.1);
     transition: var(--transition-smooth);
 }
@@ -4086,11 +4086,11 @@ body:not(.dark-theme) .auth-section .auth-footer .btn-auth-footer {
         display: flex;
     }
 
-    .sidebar-brand .brand-icon {
-        height: 140px;
-        width: 140px;
-        border-radius: 18px;
-    }
+.sidebar-brand .brand-icon {
+    height: 90px;
+    width: 90px;
+    border-radius: 14px;
+}
 
     .dashboard-content {
         padding: 20px;
@@ -4322,13 +4322,13 @@ body:not(.dark-theme) .auth-section .auth-footer .btn-auth-footer {
     }
     
     .sidebar-brand {
-        padding: 30px 24px 24px;
+        padding: 16px 24px 16px;
     }
     
     .sidebar-brand .brand-icon {
-        height: 145px;
-        width: 145px;
-        border-radius: 18px;
+        height: 90px;
+        width: 90px;
+        border-radius: 14px;
     }
     
     }
@@ -4396,13 +4396,13 @@ body:not(.dark-theme) .auth-section .auth-footer .btn-auth-footer {
     }
     
     .sidebar-brand {
-        padding: 34px 28px 26px;
+        padding: 18px 28px 18px;
     }
     
     .sidebar-brand .brand-icon {
-        height: 170px;
-        width: 170px;
-        border-radius: 22px;
+        height: 110px;
+        width: 110px;
+        border-radius: 16px;
     }
     
     .sidebar-footer {
